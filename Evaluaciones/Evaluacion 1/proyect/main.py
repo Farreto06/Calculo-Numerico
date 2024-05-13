@@ -1,20 +1,20 @@
 import flet as ft
+from flet_route import Routing, path
 from views.home import Home
 from views.page_sis import page_sis
-from views.page_sis import page_sis
+from views.page_gauss import page_gauss
 
 def main(page: ft.Page):
-    page.title="Menu"
-    page.window_height=400
-    page.window_width=350
-    page.vertical_alignment=ft.MainAxisAlignment.CENTER
+    
+    app_routes=[
+        path(url="/",view=Home),
+        path(url="/page_sis/:Sistema_Numericos",view=page_sis),
+        path(url="/page_gauss/:Reduccion",view=page_gauss)
+    ]
 
-    page.theme_mode=ft.ThemeMode.LIGHT
+    Routing(page=page,
+            app_routes=app_routes)
 
-    text=ft.Text(value="Seleciona la operacion a Realizar",text_align=ft.TextAlign.CENTER,width=350)
-    b_Sis_Num=ft.TextButton(text="Sistemas Númericos")
-    b_Gauss=ft.TextButton(text="Reduccion Gausiana")
-
-    page.add(ft.Column([text,b_Sis_Num,b_Gauss]))
+    page.go(page.route)
 
 ft.app(main)
