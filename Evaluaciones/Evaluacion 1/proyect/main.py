@@ -7,9 +7,9 @@ from views.page_gauss import page_gauss
 def main(page: ft.Page):
     
     app_routes=[
-        path(url="/",view=Home),
-        path(url="/page_sis/:Sistema_Numericos",view=page_sis),
-        path(url="/page_gauss/:Reduccion",view=page_gauss)
+        path(url="/",clear=True,view=Home),
+        path(url="/page_sis/:Sistema_Numericos",clear=True,view=page_sis),
+        path(url="/page_gauss/:Reduccion",clear=True,view=page_gauss)
     ]
 
     Routing(page=page,
