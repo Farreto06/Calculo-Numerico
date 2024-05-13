@@ -1,5 +1,7 @@
 import flet as ft
-
+from views.home import Home
+from views.page_sis import page_sis
+from views.page_sis import page_sis
 
 def main(page: ft.Page):
     page.title="Menu"
