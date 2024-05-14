@@ -6,9 +6,11 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
     page.window_height=400
     page.window_width=500
 
+    def validation_in(e):
+        pass
     
 
-    num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE)
+    num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE,on_change=validation_in)
     num_out=ft.TextField(label="Salida",width=300,filled=True,border=ft.InputBorder.UNDERLINE,disabled=True)
 
     b_submit=ft.ElevatedButton(text="Convertir",icon=ft.icons.MOVE_DOWN)
