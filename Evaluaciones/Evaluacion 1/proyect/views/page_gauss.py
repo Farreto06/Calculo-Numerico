@@ -17,8 +17,8 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
 
         X0=np.zeros(n)
         txt_vector0.value=np.array2string(X0)
-        tolera = 0.00001
-        iteramax = 100
+        tolera = 1e-6
+        iteramax = 1000
 
         # PROCEDIMIENTO
 
