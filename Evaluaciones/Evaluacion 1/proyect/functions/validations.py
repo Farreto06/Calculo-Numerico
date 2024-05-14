@@ -41,3 +41,27 @@ def val_in_sis(num,sis):
                 return False
         return True    
 
+def ter(n: int):
+    if n < 0:
+        pass
+
+    else:
+        result = ""
+        while n > 0:
+            remainder = n % 3
+            result = str(remainder) + result
+            n //= 3
+
+        return result
+
+def cua(n: int):
+    if n < 0:
+        pass
+    else:
+        result = ""
+        while n > 0:
+            remainder = n % 3
+            result = str(remainder) + result
+            n //= 4
+
+        return result
