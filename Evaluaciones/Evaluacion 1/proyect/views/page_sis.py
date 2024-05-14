@@ -84,7 +84,6 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
                 nd=int(str(num_inp))
                 num_inp=bin(nd)[2:]
                 num_out.value=num_inp
-                print(num_inp)
 
         elif sis_in=="Octal":
             if sis_out=="Hexadecimal":
@@ -227,12 +226,12 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
 
         [
             ft.AppBar(title=ft.Text("Conversión de sistemas númericos"), bgcolor=ft.colors.SURFACE_VARIANT),
-            ft.Text("Sistema de partida: "),
+            ft.Text("Sistema de partida: ",size=20),
             ft.Row([
                 num_in,
                 dd_in
             ],alignment=ft.MainAxisAlignment.CENTER),
-            ft.Text("Sistema de salida: "),
+            ft.Text("Sistema de salida: ",size=20),
             ft.Row([
                 num_out,
                 dd_out
