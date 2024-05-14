@@ -10,10 +10,13 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
     def create_matriz(e):
         n=int(dd_size.value)
         print("n:",n)
-        A = np.random.randint(1, 10, size=(n, n))
-        B = np.random.randint(1, 10, size=n)
-        X0=np.zeros(n)
+        A = np.random.randint(1, 99, size=(n, n))
+        txt_matriz.value=np.array2string(A)
+        B = np.random.randint(1, 99, size=n)
+        txt_vector.value=np.array2string(B)
 
+        X0=np.zeros(n)
+        txt_vector0.value=np.array2string(X0)
         tolera = 0.00001
         iteramax = 100
 
@@ -57,6 +60,11 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
         # SALIDA
         print('respuesta X: ')
         print(X)
+        try:
+            txt_resuly.value=np.array2string(X)
+        except:
+            txt_resuly.value="El sistema de ecuaciones no tiene solocion en los Reales"
+        
         print('verificar A.X=B: ')
         print(verifica)
 
