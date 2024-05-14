@@ -35,8 +35,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
                     txt_error.visible=False
                     icon_error.visible=False
                     conversion(dd_in.value,dd_out.value,num_in.value)
-            
-                
+                   
         else:
             txt_error.value="No selecciono un sistema"
             txt_error.visible=True
