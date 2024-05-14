@@ -1,5 +1,6 @@
 import flet as ft
 from flet_route import Params, Basket
+from functions.validations import *
 
 def page_sis(page: ft.Page,params: Params,basket: Basket):
 
@@ -7,6 +8,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
     page.window_width=500
 
     def validation_in(e):
+        val_in_sis(num_in.value,dd_in.value)
         pass
     
 
