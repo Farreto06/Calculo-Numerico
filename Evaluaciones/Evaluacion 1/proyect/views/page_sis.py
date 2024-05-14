@@ -19,7 +19,6 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
             txt_error.visible=True
             icon_error.visible=True
         elif dd_in.value!=None and dd_out.value!=None:
-            if int(num_in.value)>=0:
                 if not(val_in_sis(num_in.value,dd_in.value)):
                     txt_error.value="Introdujo un caracter fuera del sistema"
                     txt_error.visible=True
@@ -29,11 +28,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
                     txt_error.visible=False
                     icon_error.visible=False
                     conversion(dd_in.value,dd_out.value,num_in.value)
-            else:
-                txt_error.value="Introdujo un numero negativo"
-                txt_error.visible=True
-                icon_error.visible=True
-
+            
                 
         else:
             txt_error.value="No selecciono un sistema"
