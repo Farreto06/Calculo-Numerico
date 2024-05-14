@@ -19,6 +19,7 @@ def Home(page: ft.Page,params: Params,basket: Basket):
 
             ft.ElevatedButton("Sistemas Númericos",on_click=lambda _: page.go("/page_sis/Si estoy aqui")),
             ft.ElevatedButton("Reduccion Gausiana",on_click=lambda _: page.go("/page_gauss/Yes, i'm here")),
+            ft.ElevatedButton(text="Cerrar",on_click=lambda e: page.window_close(),)
                 
         ],
         vertical_alignment=ft.MainAxisAlignment.CENTER,
