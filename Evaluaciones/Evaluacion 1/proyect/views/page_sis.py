@@ -18,6 +18,12 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
             txt_error.value="Selecciono el mismo sistema de salida que de entrada"
             txt_error.visible=True
             icon_error.visible=True
+
+        elif num_in.value=="" or num_in.value==None:
+            txt_error.value="No ingreso ningun numero como entrada"
+            txt_error.visible=True
+            icon_error.visible=True
+
         elif dd_in.value!=None and dd_out.value!=None:
                 if not(val_in_sis(num_in.value,dd_in.value)):
                     txt_error.value="Introdujo un caracter fuera del sistema"
