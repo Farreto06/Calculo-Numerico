@@ -1,4 +1,5 @@
 import flet as ft
+import numpy as np
 from flet_route import Params, Basket
 
 def page_gauss(page: ft.Page,params: Params,basket: Basket):
@@ -6,8 +7,64 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
     page.window_height=600
     page.window_width=700
 
+    def create_matriz(e):
+        n=int(dd_size.value)
+        print("n:",n)
+        A = np.random.randint(1, 10, size=(n, n))
+        B = np.random.randint(1, 10, size=n)
+        X0=np.zeros(n)
+
+        tolera = 0.00001
+        iteramax = 100
+
+        # PROCEDIMIENTO
+
+        # Gauss-Seidel
+        tamano = np.shape(A)
+        n = tamano[0]
+        m = tamano[1]
+        #  valores iniciales
+        X = np.copy(X0)
+        diferencia = np.ones(n, dtype=float)
+        errado = 2*tolera
+
+        itera = 0
+        while not(errado<=tolera or itera>iteramax):
+            # por fila
+            for i in range(0,n,1):
+                # por columna
+                suma = 0 
+                for j in range(0,m,1):
+                    # excepto diagonal de A
+                    if (i!=j): 
+                        suma = suma-A[i,j]*X[j]
+                
+                nuevo = (B[i]+suma)/A[i,i]
+                diferencia[i] = np.abs(nuevo-X[i])
+                X[i] = nuevo
+            errado = np.max(diferencia)
+            itera = itera + 1
+
+        # Respuesta X en columna
+        X = np.transpose([X])
+
+        # revisa si NO converge
+        if (itera>iteramax):
+            X=0
+        # revisa respuesta
+        verifica = np.dot(A,X)
+
+        # SALIDA
+        print('respuesta X: ')
+        print(X)
+        print('verificar A.X=B: ')
+        print(verifica)
+
+        page.update()
+
     dd_size= ft.Dropdown(
         width=100,
+        value="1",
         bgcolor="#5b5b60",
         options=[
             ft.dropdown.Option("2"),
@@ -21,7 +78,7 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
     icon_error=ft.Icon(name=ft.icons.ERROR,visible=False,color=ft.colors.RED)
 
     txt_matriz=ft.TextField(value="",label="Matriz",read_only=True,multiline=True,min_lines=5,width=250,bgcolor="#5b5b60")
-    btn_create=ft.ElevatedButton(text="Crear Matriz",icon=ft.icons.CREATE)
+    btn_create=ft.TextButton(text="Crear Matriz",icon=ft.icons.CREATE,on_click=create_matriz)
     btn_clean=ft.ElevatedButton(text="Borrar",icon=ft.icons.CLEAR)
 
     txt_vector=ft.TextField(value="",label="Vector",read_only=True,multiline=True,width=250,bgcolor="#5b5b60")

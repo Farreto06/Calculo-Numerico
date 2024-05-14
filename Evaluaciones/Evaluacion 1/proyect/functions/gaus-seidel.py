@@ -3,8 +3,9 @@
 # por métodos iterativos
 
 import numpy as np
-
+n=3
 # INGRESO
+"""
 A = np.array([[3. , -0.1, -0.2],
               [0.1,  7  , -0.3],
               [0.3, -0.2, 10  ]])
@@ -12,7 +13,10 @@ A = np.array([[3. , -0.1, -0.2],
 B = np.array([7.85,-19.3,71.4])
 
 X0  = np.array([0.,0.,0.])
-
+"""
+A = np.random.randint(1, 10, size=(n, n))
+B = np.random.randint(1, 10, size=n)
+X0=np.zeros(n)
 tolera = 0.00001
 iteramax = 100
 
