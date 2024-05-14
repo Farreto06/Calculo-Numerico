@@ -60,7 +60,7 @@ def cua(n: int):
     else:
         result = ""
         while n > 0:
-            remainder = n % 3
+            remainder = n % 4
             result = str(remainder) + result
             n //= 4
 
