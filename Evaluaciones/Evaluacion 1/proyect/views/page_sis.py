@@ -6,14 +6,57 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
     page.window_height=400
     page.window_width=500
 
+    
+
+    num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE)
+    num_out=ft.TextField(label="Salida",width=300,filled=True,border=ft.InputBorder.UNDERLINE,disabled=True)
+
+    b_submit=ft.ElevatedButton(text="Convertir",icon=ft.icons.MOVE_DOWN)
+
+    dd_in = ft.Dropdown(
+        width=150,
+        options=[
+            ft.dropdown.Option("Hexadecimal"),
+            ft.dropdown.Option("Decimal"),
+            ft.dropdown.Option("Octal"),
+            ft.dropdown.Option("4"),
+            ft.dropdown.Option("3"),
+            ft.dropdown.Option("Binario"),
+        ],
+    )
+
+    dd_out = ft.Dropdown(
+        width=150,
+        options=[
+            ft.dropdown.Option("Hexadecimal"),
+            ft.dropdown.Option("Decimal"),
+            ft.dropdown.Option("Octal"),
+            ft.dropdown.Option("4"),
+            ft.dropdown.Option("3"),
+            ft.dropdown.Option("Binario"),
+        ],
+    )
+
+
     return ft.View(
         "/page_sis/:Sistema_Numericos",
 
         [
             ft.AppBar(title=ft.Text("Conversión de sistemas númericos"), bgcolor=ft.colors.SURFACE_VARIANT),
-            ft.Text("working progress"),
-            ft.ElevatedButton("Go back",on_click=lambda _: page.go("/"))
+            ft.Text("Sistema de partida: "),
+            ft.Row([
+                num_in,
+                dd_in
+            ]),
+            ft.Text("Sistema de salida: "),
+            ft.Row([
+                num_out,
+                dd_out
+            ]),
+            ft.Row([b_submit,ft.ElevatedButton("Go back",on_click=lambda _: page.go("/"))])
+            
         ],
 
-        vertical_alignment=ft.MainAxisAlignment.CENTER
+        #vertical_alignment=ft.MainAxisAlignment.CENTER,
+        
     )
