@@ -10,7 +10,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
     page.window_min_height=400
     page.window_min_width=500
 
-    txt_error=ft.Text("error",visible=False)
+    txt_error=ft.Text("error",visible=False,color=ft.colors.RED)
     icon_error=ft.Icon(name=ft.icons.ERROR,visible=False,color=ft.colors.RED)
 
     def validation_in(e):
@@ -18,14 +18,13 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
             if not(val_in_sis(num_in.value,dd_in.value)):
                 txt_error.value="Introdujo un caracter fuera del sistema"
                 txt_error.visible=True
-                print("entre siiii")
+                icon_error.visible=True
         else:
             txt_error.value="No selecciono ningun sistema"
-            print("no entre pipipi")
-    
-    def set_txt_error():
-        pass
-
+            txt_error.visible=True
+            icon_error.visible=True
+            
+        page.update()
 
     num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE)
     num_out=ft.TextField(label="Salida",width=300,filled=True,border=ft.InputBorder.UNDERLINE,disabled=True)
