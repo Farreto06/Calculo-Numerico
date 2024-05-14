@@ -6,8 +6,8 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
     return ft.View(
         "/page_gauss/:Reduccion",
 
-        controls=[
-            ft.AppBar(title=ft.Text("Conversión de sistemas númericos")),
+        [
+            ft.AppBar(title=ft.Text("Conversión de sistemas númericos"), bgcolor=ft.colors.SURFACE_VARIANT),
             ft.Text("working progress"),
             ft.ElevatedButton("Go back",on_click=lambda _: page.go("/"))
         ]
