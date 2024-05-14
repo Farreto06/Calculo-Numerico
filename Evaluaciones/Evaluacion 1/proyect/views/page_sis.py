@@ -7,15 +7,30 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
     page.window_height=400
     page.window_width=500
 
-    def validation_in(e):
-        val_in_sis(num_in.value,dd_in.value)
-        pass
-    
+    page.window_min_height=400
+    page.window_min_width=500
 
-    num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE,on_change=validation_in)
+    txt_error=ft.Text("error",visible=False)
+    icon_error=ft.Icon(name=ft.icons.ERROR,visible=False,color=ft.colors.RED)
+
+    def validation_in(e):
+        if dd_in.value!=None:
+            if not(val_in_sis(num_in.value,dd_in.value)):
+                txt_error.value="Introdujo un caracter fuera del sistema"
+                txt_error.visible=True
+                print("entre siiii")
+        else:
+            txt_error.value="No selecciono ningun sistema"
+            print("no entre pipipi")
+    
+    def set_txt_error():
+        pass
+
+
+    num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE)
     num_out=ft.TextField(label="Salida",width=300,filled=True,border=ft.InputBorder.UNDERLINE,disabled=True)
 
-    b_submit=ft.ElevatedButton(text="Convertir",icon=ft.icons.MOVE_DOWN)
+    b_submit=ft.ElevatedButton(text="Convertir",icon=ft.icons.MOVE_DOWN,on_click=validation_in)
 
     dd_in = ft.Dropdown(
         width=150,
@@ -51,16 +66,19 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
             ft.Row([
                 num_in,
                 dd_in
-            ]),
+            ],alignment=ft.MainAxisAlignment.CENTER),
             ft.Text("Sistema de salida: "),
             ft.Row([
                 num_out,
                 dd_out
-            ]),
-            ft.Row([b_submit,ft.ElevatedButton("Go back",on_click=lambda _: page.go("/"))])
+            ],alignment=ft.MainAxisAlignment.CENTER),
+            ft.Row([ft.ElevatedButton("Go back",icon=ft.icons.ARROW_BACK,on_click=lambda _: page.go("/")),b_submit],alignment=ft.MainAxisAlignment.CENTER),
+
+            ft.Row([icon_error,txt_error],alignment=ft.MainAxisAlignment.CENTER)
             
         ],
-
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER
         #vertical_alignment=ft.MainAxisAlignment.CENTER,
         
     )
