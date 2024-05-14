@@ -14,17 +14,183 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
     icon_error=ft.Icon(name=ft.icons.ERROR,visible=False,color=ft.colors.RED)
 
     def validation_in(e):
-        if dd_in.value!=None:
+        if dd_in.value!=None and dd_out.value!=None:
             if not(val_in_sis(num_in.value,dd_in.value)):
                 txt_error.value="Introdujo un caracter fuera del sistema"
                 txt_error.visible=True
                 icon_error.visible=True
+            else:
+                txt_error.value=""
+                txt_error.visible=False
+                icon_error.visible=False
+                conversion(dd_in.value,dd_out.value,num_in.value)
+                
         else:
-            txt_error.value="No selecciono ningun sistema"
+            txt_error.value="No selecciono un sistema"
             txt_error.visible=True
             icon_error.visible=True
             
         page.update()
+
+    def conversion(sis_in,sis_out,num_inp):
+        if sis_in=="Hexadecimal":
+            if sis_out=="Decimal":
+                nd=int(str(num_inp),base=16)
+                num_inp=nd
+                num_out.value=num_inp
+                
+            elif sis_out=="Octal":
+                nd=int(str(num_inp),base=16)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+                
+            elif sis_out=="4":
+                nd=int(str(num_inp),base=16)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="3":
+                nd=int(str(num_inp),base=16)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="Binario":
+                nd=int(str(num_inp),base=16)
+                num_inp=bin(nd)[2:]
+                num_out.value=num_inp
+            
+        elif sis_in=="Decimal":
+            if sis_out=="Hexadecimal":
+                nd=int(str(num_inp))
+                num_inp=hex(nd)[2:]
+                num_out.value=num_inp
+                
+            elif sis_out=="Octal":
+                nd=int(str(num_inp))
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+                
+            elif sis_out=="4":
+                nd=int(str(num_inp))
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="3":
+                nd=int(str(num_inp))
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="Binario":
+                nd=int(str(num_inp))
+                num_inp=bin(nd)[2:]
+                num_out.value=num_inp
+                print(num_inp)
+
+        elif sis_in=="Octal":
+            if sis_out=="Hexadecimal":
+                nd=int(str(num_inp),base=8)
+                num_inp=hex(nd)[2:]
+                num_out.value=num_inp
+                
+            elif sis_out=="Decimal":
+                nd=int(str(num_inp),base=8)
+                num_inp=nd
+                num_out.value=num_inp
+                
+            elif sis_out=="4":
+                nd=int(str(num_inp),base=8)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="3":
+                nd=int(str(num_inp),base=8)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="Binario":
+                nd=int(str(num_inp),base=8)
+                num_inp=bin(nd)[2:]
+                num_out.value=num_inp
+
+        elif sis_in=="4":
+            if sis_out=="Hexadecimal":
+                nd=int(str(num_inp),base=4)
+                num_inp=hex(nd)[2:]
+                num_out.value=num_inp
+                
+            elif sis_out=="Decimal":
+                nd=int(str(num_inp),base=4)
+                num_inp=nd
+                num_out.value=num_inp
+                
+            elif sis_out=="Octal":
+                nd=int(str(num_inp),base=4)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="3":
+                nd=int(str(num_inp),base=4)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="Binario":
+                nd=int(str(num_inp),base=4)
+                num_inp=bin(nd)[2:]
+                num_out.value=num_inp
+
+        elif sis_in=="3":
+            if sis_out=="Hexadecimal":
+                nd=int(str(num_inp),base=3)
+                num_inp=hex(nd)[2:]
+                num_out.value=num_inp
+                
+            elif sis_out=="Decimal":
+                nd=int(str(num_inp),base=3)
+                num_inp=nd
+                num_out.value=num_inp
+                
+            elif sis_out=="Octal":
+                nd=int(str(num_inp),base=3)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="4":
+                nd=int(str(num_inp),base=3)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="Binario":
+                nd=int(str(num_inp),base=3)
+                num_inp=bin(nd)[2:]
+                num_out.value=num_inp
+
+        elif sis_in=="Binario":
+            if sis_out=="Hexadecimal":
+                nd=int(str(num_inp),base=2)
+                num_inp=hex(nd)[2:]
+                num_out.value=num_inp
+                
+            elif sis_out=="Decimal":
+                nd=int(str(num_inp),base=2)
+                num_inp=nd
+                num_out.value=num_inp
+                
+            elif sis_out=="Octal":
+                nd=int(str(num_inp),base=2)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="4":
+                nd=int(str(num_inp),base=2)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+
+            elif sis_out=="3":
+                nd=int(str(num_inp),base=2)
+                num_inp=oct(nd)[2:]
+                num_out.value=num_inp
+            page.update()
+        
 
     num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE)
     num_out=ft.TextField(label="Salida",width=300,filled=True,border=ft.InputBorder.UNDERLINE,disabled=True)
@@ -78,6 +244,5 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
         ],
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER
-        #vertical_alignment=ft.MainAxisAlignment.CENTER,
         
     )
