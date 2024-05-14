@@ -70,6 +70,13 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
 
         page.update()
 
+    def clear(e) ->None:
+        txt_matriz.value=""
+        txt_resuly.value=""
+        txt_vector.value=""
+        txt_vector0.value=""
+        page.update()
+
     dd_size= ft.Dropdown(
         width=100,
         value="1",
@@ -87,7 +94,7 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
 
     txt_matriz=ft.TextField(value="",label="Matriz",read_only=True,multiline=True,min_lines=5,width=250,bgcolor="#5b5b60")
     btn_create=ft.TextButton(text="Crear Matriz",icon=ft.icons.CREATE,on_click=create_matriz)
-    btn_clean=ft.ElevatedButton(text="Borrar",icon=ft.icons.CLEAR)
+    btn_clean=ft.ElevatedButton(text="Borrar",icon=ft.icons.CLEAR,on_click=clear)
 
     txt_vector=ft.TextField(value="",label="Vector",read_only=True,multiline=True,width=250,bgcolor="#5b5b60")
     txt_vector0=ft.TextField(value="",label="Vector Xo",read_only=True,multiline=True,width=250,bgcolor="#5b5b60")
