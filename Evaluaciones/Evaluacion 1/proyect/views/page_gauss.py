@@ -64,7 +64,7 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
         try:
             txt_resuly.value=np.array2string(X)
         except:
-            txt_resuly.value="El sistema de ecuaciones no tiene solocion en los Reales"
+            txt_resuly.value="No encontro solucion"
         
         print('verificar A.X=B: ')
         print(verifica)
