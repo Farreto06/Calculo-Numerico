@@ -6,6 +6,7 @@ def page_gauss(page: ft.Page,params: Params,basket: Basket):
 
     page.window_height=600
     page.window_width=700
+    page.window_center()
 
     def create_matriz(e):
         n=int(dd_size.value)

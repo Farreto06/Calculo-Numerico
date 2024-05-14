@@ -6,6 +6,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
 
     page.window_height=400
     page.window_width=500
+    page.window_center()
 
     page.window_min_height=400
     page.window_min_width=500
