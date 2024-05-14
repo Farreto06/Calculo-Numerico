@@ -19,7 +19,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
             txt_error.visible=True
             icon_error.visible=True
         elif dd_in.value!=None and dd_out.value!=None:
-            if isinstance(num_in, int) and num_in>=0:
+            if int(num_in.value)>=0:
                 if not(val_in_sis(num_in.value,dd_in.value)):
                     txt_error.value="Introdujo un caracter fuera del sistema"
                     txt_error.visible=True
@@ -29,12 +29,8 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
                     txt_error.visible=False
                     icon_error.visible=False
                     conversion(dd_in.value,dd_out.value,num_in.value)
-            elif isinstance(num_in, float):
-                txt_error.value="Introdujo un número con decimales"
-                txt_error.visible=True
-                icon_error.visible=True   
-            elif num_in.value<0:
-                txt_error.value="Introdujo un número negativo"
+            else:
+                txt_error.value="Introdujo un numero negativo"
                 txt_error.visible=True
                 icon_error.visible=True
 
@@ -206,7 +202,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
         
 
     num_in=ft.TextField(label="Entrada",width=300,filled=True,border=ft.InputBorder.UNDERLINE)
-    num_out=ft.TextField(label="Salida",width=300,filled=True,border=ft.InputBorder.UNDERLINE,disabled=True)
+    num_out=ft.TextField(label="Salida",width=300,filled=True,border=ft.InputBorder.UNDERLINE,read_only=True)
 
     b_submit=ft.ElevatedButton(text="Convertir",icon=ft.icons.MOVE_DOWN,on_click=validation_in)
 
