@@ -46,12 +46,12 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
                 
             elif sis_out=="4":
                 nd=int(str(num_inp),base=16)
-                num_inp=cua(nd)[2:]
+                num_inp=cua(nd)
                 num_out.value=num_inp
 
             elif sis_out=="3":
                 nd=int(str(num_inp),base=16)
-                num_inp=ter(nd)[2:]
+                num_inp=ter(nd)
                 num_out.value=num_inp
 
             elif sis_out=="Binario":
@@ -72,12 +72,12 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
                 
             elif sis_out=="4":
                 nd=int(str(num_inp))
-                num_inp=cua(nd)[2:]
+                num_inp=cua(nd)
                 num_out.value=num_inp
 
             elif sis_out=="3":
                 nd=int(str(num_inp))
-                num_inp=ter(nd)[2:]
+                num_inp=ter(nd)
                 num_out.value=num_inp
 
             elif sis_out=="Binario":
@@ -99,12 +99,12 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
                 
             elif sis_out=="4":
                 nd=int(str(num_inp),base=8)
-                num_inp=cua(nd)[2:]
+                num_inp=cua(nd)
                 num_out.value=num_inp
 
             elif sis_out=="3":
                 nd=int(str(num_inp),base=8)
-                num_inp=ter(nd)[2:]
+                num_inp=ter(nd)
                 num_out.value=num_inp
 
             elif sis_out=="Binario":
@@ -130,7 +130,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
 
             elif sis_out=="3":
                 nd=int(str(num_inp),base=4)
-                num_inp=ter(nd)[2:]
+                num_inp=ter(nd)
                 num_out.value=num_inp
 
             elif sis_out=="Binario":
@@ -156,7 +156,7 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
 
             elif sis_out=="4":
                 nd=int(str(num_inp),base=3)
-                num_inp=cua(nd)[2:]
+                num_inp=cua(nd)
                 num_out.value=num_inp
 
             elif sis_out=="Binario":
@@ -182,12 +182,12 @@ def page_sis(page: ft.Page,params: Params,basket: Basket):
 
             elif sis_out=="4":
                 nd=int(str(num_inp),base=2)
-                num_inp=cua(nd)[2:]
+                num_inp=cua(nd)
                 num_out.value=num_inp
 
             elif sis_out=="3":
                 nd=int(str(num_inp),base=2)
-                num_inp=ter(nd)[2:]
+                num_inp=ter(nd)
                 num_out.value=num_inp
             page.update()
         
